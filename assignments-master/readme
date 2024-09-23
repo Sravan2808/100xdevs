@@ -1,0 +1,6 @@
+C:\Users\sumeet mourya\VsCode\100xdev_HW> npm install jest
+then cd 01.js
+then
+C:\Users\sumeet mourya\VsCode\100xdev_HW\01-js npx jest ./tests/anagram.test.js
+NOTE: use "./tests/anagram.test.js" not this ".\tests\anagram.test.js"
+Had same issue got resolved using "/"
