@@ -1,5 +1,3 @@
-const request = require('supertest');
-const assert = require('assert');
 const express = require('express');
 
 const app = express();
@@ -23,4 +21,10 @@ app.get('/errorCount', function(req, res) {
   res.status(200).json({ errorCount });
 });
 
+
+//error handling middleware at the end of the file we have to do
+app.use(function(err,req,res,next){
+  res.status(404).json({});
+  errorCount=errorCount+1;
+})
 module.exports = app;
