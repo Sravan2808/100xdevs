@@ -1,0 +1,40 @@
+<html>
+    <script >
+        function debouncePopulateDiv(){
+            // delay the call to populateDiv until ive not been called for 100ms
+            // and I've been called atleast once
+            setTimeout(function(){
+                populateDiv()
+            },100)
+        }
+        // how do you cancel a clock?
+        // clearTimeout(value)
+        function populateDiv(){
+            // hello world
+            // document
+            const a = document.getElementById("FirstNumber").value
+            const b = document.getElementById("SecondNumber").value
+            // const element=document.getElementById("finalSum")
+            // fetch
+            fetch("http://localhost:3000/sum?a=" + a + "&b=" + b)
+            .then(function(response){
+                console.log(response);
+                response.text()
+                .then(function(ans){
+                    console.log(ans);
+                    document.getElementById("finalSum").innerHTML=ans;   
+                })
+                
+            })
+            // element.innerHTML=parseInt(a)+parseInt(b)
+            // parseInt=String=>number
+        }
+    </script>
+    <body>
+       <input id="FirstNumber" type="text" placeholder="First number"></input><br><br>
+       <input id="SecondNumber" type="text" placeholder="Second number"></input><br><br>
+       <button onclick="debouncePopulateDiv()">Calculate sum</button><br><br>
+       <div id="finalSum"> </div>
+
+    </body>
+</html>
